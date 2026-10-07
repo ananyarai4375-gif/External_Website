@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book tickets for the latest blockbuster movies." />
+  <title>CineVerse | Book Movie Tickets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="brand" aria-label="CineVerse home">
+      <span class="brand-mark">C</span>
+      <span>CineVerse</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#movies">Movies</a>
+      <a href="#showtimes">Showtimes</a>
+      <a href="#offers">Offers</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+    <button class="nav-button">Sign in</button>
+  </header>
+
+  <main>
+    <section class="hero" id="movies">
+      <div class="hero-copy">
+        <p class="eyebrow">Now showing</p>
+        <h1>Find your next favorite story.</h1>
+        <p class="subtitle">Book tickets for blockbuster experiences, intimate dramas, and late-night premieres.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#showtimes">Book now</a>
+          <a class="secondary-button" href="#offers">View offers</a>
+        </div>
+        <ul class="stats" aria-label="Movie statistics">
+          <li><strong>120+</strong><span>screens</span></li>
+          <li><strong>4.8/5</strong><span>ratings</span></li>
+          <li><strong>2k+</strong><span>bookings</span></li>
+        </ul>
+      </div>
+      <div class="hero-poster" aria-label="Featured movie poster">
+        <div class="poster-glow"></div>
+        <div class="poster-card">
+          <span class="poster-tag">New release</span>
+          <div class="poster-content">
+            <p class="poster-label">Action / Sci‑Fi</p>
+            <h2>Nova Run</h2>
+            <div class="poster-meta">
+              <span>⭐ 8.9</span>
+              <span>2h 14m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-shell" id="showtimes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Trending now</p>
+          <h2>Movies in theaters</h2>
+        </div>
+        <button class="text-button" type="button">See all</button>
+      </div>
+
+      <div class="movie-grid" id="movieGrid" aria-live="polite"></div>
+
+      <div class="booking-panel" aria-live="polite">
+        <div class="booking-header">
+          <div>
+            <p class="eyebrow">Select seats</p>
+            <h3 id="bookingTitle">Choose your movie</h3>
+          </div>
+          <div class="showtime-pill" id="showtimePill">Select a showtime</div>
+        </div>
+
+        <div class="booking-options">
+          <label>Theatre
+            <select id="theatreSelect">
+              <option>Downtown Cineplex</option>
+              <option>Riverside Screens</option>
+              <option>Grand Central Cinema</option>
+            </select>
+          </label>
+          <label>Date
+            <input id="dateSelect" type="date" />
+          </label>
+        </div>
+
+        <div class="screen-panel">
+          <div class="screen" aria-hidden="true">Screen</div>
+        </div>
+
+        <div class="seat-map" id="seatMap" aria-label="Seat selection map"></div>
+
+        <div class="seat-legend" aria-label="Seat legend">
+          <span><i class="seat available"></i> Available</span>
+          <span><i class="seat selected"></i> Selected</span>
+          <span><i class="seat occupied"></i> Occupied</span>
+        </div>
+
+        <div class="booking-footer">
+          <div class="total-box">
+            <span>Total</span>
+            <strong id="totalPrice">$0</strong>
+          </div>
+          <button class="booking-button" id="bookButton" type="button">Proceed to pay</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="offers" id="offers">
+      <div class="offer-card">
+        <span class="offer-icon">🎟️</span>
+        <div>
+          <p>Student discount</p>
+          <strong>Save 20% on weekdays</strong>
+        </div>
+      </div>
+      <div class="offer-card accent">
+        <span class="offer-icon">🍿</span>
+        <div>
+          <p>Combo deal</p>
+          <strong>Popcorn + drink at $8</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Booking confirmed!</div>
+
+  <section class="busy-screen" id="busyScreen" role="alert" aria-live="assertive" hidden>
+    <div class="busy-card">
+      <span class="busy-icon" aria-hidden="true">!</span>
+      <p class="eyebrow">CineVerse is at capacity</p>
+      <h1>Server busy</h1>
+      <p class="busy-message">More than 10 people are using the booking site right now. Please try again shortly.</p>
+      <button class="primary-button busy-retry" id="busyRetry" type="button">Try again</button>
+      <p class="busy-status" id="busyStatus" role="status"></p>
+    </div>
+  </section>
+
+  <script src="/runtime-config.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

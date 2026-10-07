@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CineVerse simulated capacity and self-healing dashboard." />
+  <title>CineVerse | Operations Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="admin-page">
+  <header class="topbar">
+    <a href="/" class="brand" aria-label="CineVerse home"><span class="brand-mark">C</span><span>CineVerse Ops</span></a>
+    <nav class="main-nav" aria-label="Admin navigation"><a href="/">Booking site</a></nav>
+    <span class="live-pill"><i></i> LIVE DEMO</span>
+  </header>
+  <main class="admin-shell">
+    <section class="admin-heading">
+      <div><p class="eyebrow">Operations center</p><h1>Self-healing overview</h1><p class="admin-subtitle">Live visitor load and simulated infrastructure status. Refreshes every 3 seconds.</p></div>
+      <div class="healing-badge" id="healingBadge">● Self-healing active</div>
+    </section>
+    <section class="metric-grid" aria-label="Capacity metrics">
+      <article class="metric-card"><span>Active users</span><strong id="activeUsers">—</strong><small id="capacityLabel">Loading capacity</small></article>
+      <article class="metric-card"><span>Simulated VMs</span><strong id="vmCount">—</strong><small>Instances in demo cluster</small></article>
+      <article class="metric-card"><span>Server capacity</span><strong id="capacityValue">—</strong><small>Visitor slots across VMs</small></article>
+      <article class="metric-card"><span>Last scaling event</span><strong class="event-value" id="lastEvent">Loading…</strong><small id="updatedAt">Awaiting backend</small></article>
+    </section>
+    <section class="admin-section">
+      <div class="admin-section-title"><div><p class="eyebrow">Compute</p><h2>VM health</h2></div><span class="status-label"><i></i> All systems monitored</span></div>
+      <div class="vm-grid" id="vmGrid" aria-live="polite"><p class="empty-state">Connecting to backend…</p></div>
+    </section>
+    <section class="admin-section">
+      <div class="admin-section-title"><div><p class="eyebrow">Activity</p><h2>Scaling events</h2></div></div>
+      <ol class="event-list" id="eventList"><li class="empty-state">No events yet.</li></ol>
+    </section>
+    <p class="dashboard-note">VM health, CPU/memory and scaling are simulated for this demo; they do not create or manage real cloud machines.</p>
+  </main>
+  <script src="/runtime-config.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

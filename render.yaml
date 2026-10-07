@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: cineverse-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cineverse-postgres
+          property: connectionString
+      - key: CORS_ORIGINS
+        value: https://my-movie-demo.vercel.app,http://localhost:8000
+      - key: MAX_ACTIVE_USERS
+        value: "50"
+      - key: VM_CAPACITY
+        value: "10"
+      - key: MAX_SIMULATED_VMS
+        value: "5"
+
+databases:
+  - name: cineverse-postgres
+    plan: free
+    databaseName: cineverse
+    user: cineverse
